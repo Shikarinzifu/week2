@@ -61,8 +61,7 @@ flutter:
   assets:
   - assets/icon/app_icon.png
 
-
-  flutter flutter_launcher_icons:
+flutter_launcher_icons:
   android: true
   ios: true
   image_path: "assets/icon/app_icon.png"
@@ -97,3 +96,5 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
+
+  
