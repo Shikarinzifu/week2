@@ -16,9 +16,26 @@ class MyHomePage extends StatelessWidget {
                 Theme.of(context).colorScheme.inversePrimary,
           ),
           body: Center(
-            child: Text(
-              '${counterModel.counter}',
-              style: const TextStyle(fontSize: 24),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Text(
+                  "Counter Value",
+                  style: TextStyle(
+                    fontSize: 18,
+                    color: Colors.grey,
+                  ),
+                ),
+                const SizedBox(height: 10),
+                Text(
+                  counterModel.counter.toString(),
+                  style: const TextStyle(
+                    fontSize: 40,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.deepPurple,
+                  ),
+                ),
+              ],
             ),
           ),
           floatingActionButton: FloatingActionButton(
