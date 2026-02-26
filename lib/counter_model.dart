@@ -1,9 +1,12 @@
-class CounterModel extends ChangeNotifier {
-  int _angka = 0;
-  int get angka => _angka;
+import 'package:flutter/material.dart';
 
-  void Increment() {
-    _angka++;
-    notifyListeners(); 
+class CounterModel extends ChangeNotifier {
+  int _counter = 0;
+
+  int get counter => _counter;
+
+  void increment() {
+    _counter++;
+    notifyListeners();
   }
 }
