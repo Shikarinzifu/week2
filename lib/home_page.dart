@@ -21,10 +21,7 @@ class MyHomePage extends StatelessWidget {
               children: [
                 const Text(
                   "Counter Value",
-                  style: TextStyle(
-                    fontSize: 18,
-                    color: Colors.grey,
-                  ),
+                  style: TextStyle(fontSize: 18),
                 ),
                 const SizedBox(height: 10),
                 Text(
@@ -32,14 +29,16 @@ class MyHomePage extends StatelessWidget {
                   style: const TextStyle(
                     fontSize: 40,
                     fontWeight: FontWeight.bold,
-                    color: Colors.deepPurple,
                   ),
                 ),
               ],
             ),
           ),
           floatingActionButton: FloatingActionButton(
-            onPressed: counterModel.increment,
+            onPressed: () {
+              Provider.of<CounterModel>(context, listen: false)
+                  .increment();
+            },
             child: const Icon(Icons.add),
           ),
         );
