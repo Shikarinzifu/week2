@@ -1,46 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'counter_model.dart';
 
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Stateman App',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.deepPurple,
-        ),
-      ),
-      home: const MyHomePage(),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
+class MyHomePage extends StatelessWidget {
   const MyHomePage({super.key});
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return Builder(
-      builder: (context) {
+    return Consumer<CounterModel>(
+      builder: (context, counterModel, child) {
         return Scaffold(
           appBar: AppBar(
             title: const Text("Home Page"),
@@ -49,12 +17,12 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           body: Center(
             child: Text(
-              '$_counter',
+              '${counterModel.counter}',
               style: const TextStyle(fontSize: 24),
             ),
           ),
           floatingActionButton: FloatingActionButton(
-            onPressed: _incrementCounter,
+            onPressed: counterModel.increment,
             child: const Icon(Icons.add),
           ),
         );
